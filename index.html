@@ -14,28 +14,30 @@
 </head>
 <body>
 
-    <h1>Aves: Imperio de Aves 1egítimo 🥚</h1>
+    <h1>Imperio de Aves Legítimo 🥚</h1>
 
-    <!-- Marcadores del juego -->
     <div class="marcador">Aves: <span id="cant-aves">1</span></div>
     <div class="marcador">Huevos: <span id="cant-huevos">0</span></div>
 
-    <!-- Botones de acción -->
-    <button onclick="recolectarHuevo()">Recolección Manual</button>
+    <button onclick="recolectarHuevo()">Recolección Manual (+1)</button>
     <button onclick="comprarAve()">Comprar Ave (Cuesta 10 Huevos)</button>
 
-    <!-- Espacio reservado para la futura publicidad -->
     <div class="anuncio-placeholder">
-        📺 Aquí se mostrará el anuncio de video para duplicar producción
+        📺 Aquí se mostrará el anuncio de video para ganar monedas
     </div>
 
     <script>
-        // Lógica interna del juego en el navegador
         let aves = 1;
         let huevos = 0;
 
-        function recolectarHuevo() {
+        // Producción automática por segundo
+        setInterval(function() {
             huevos += aves;
+            actualizarPantalla();
+        }, 1000);
+
+        function recolectarHuevo() {
+            huevos += 1;
             actualizarPantalla();
         }
 
