@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Granja de Aves</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #e0f7fa; padding: 20px; }
+        .marcador { font-size: 24px; margin: 10px; font-weight: bold; color: #333; }
+        button { padding: 15px 25px; font-size: 16px; margin: 10px; cursor: pointer; border-radius: 8px; border: none; background-color: #4caf50; color: white; }
+        button:hover { background-color: #45a049; }
+        .anuncio-placeholder { border: 2px dashed #999; padding: 10px; margin: 20px auto; max-width: 300px; background-color: #fff; color: #666; }
+    </style>
+</head>
+<body>
+
+    <h1>Aves: Imperio de Aves 1egítimo 🥚</h1>
+
+    <!-- Marcadores del juego -->
+    <div class="marcador">Aves: <span id="cant-aves">1</span></div>
+    <div class="marcador">Huevos: <span id="cant-huevos">0</span></div>
+
+    <!-- Botones de acción -->
+    <button onclick="recolectarHuevo()">Recolección Manual</button>
+    <button onclick="comprarAve()">Comprar Ave (Cuesta 10 Huevos)</button>
+
+    <!-- Espacio reservado para la futura publicidad -->
+    <div class="anuncio-placeholder">
+        📺 Aquí se mostrará el anuncio de video para duplicar producción
+    </div>
+
+    <script>
+        // Lógica interna del juego en el navegador
+        let aves = 1;
+        let huevos = 0;
+
+        function recolectarHuevo() {
+            huevos += aves;
+            actualizarPantalla();
+        }
+
+        function comprarAve() {
+            if (huevos >= 10) {
+                huevos -= 10;
+                aves += 1;
+                actualizarPantalla();
+            } else {
+                alert("¡Necesitas al menos 10 huevos para comprar otra ave!");
+            }
+        }
+
+        function actualizarPantalla() {
+            document.getElementById('cant-aves').innerText = aves;
+            document.getElementById('cant-huevos').innerText = huevos;
+        }
+    </script>
+</body>
+</html>
